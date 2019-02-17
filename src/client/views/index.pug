@@ -11,7 +11,7 @@ block content
         input(placeholder='Password' id='password_input')
         input(placeholder='PIN' id='pin_input')
         input(type='submit')
-    p(id='pw_url')
+    a(id='pw_url')
 
     script(type='application/javascript').
 
@@ -26,7 +26,10 @@ block content
                 .then(function (response) {
                     console.log(response);
                     mainForm.parentElement.removeChild(mainForm);
-                    document.getElementById('pw_url').innerText = 'https://pwbin.arik.io/' + response.address;
+                    const url = `${document.location.origin}/${response.address}`;
+                    const text = `https://pwbin.io/${response.address}`;
+                    document.getElementById('pw_url').href = url;
+                    document.getElementById('pw_url').innerText = text;
                 })
                 .catch(function (error) {
                     console.trace(error);
