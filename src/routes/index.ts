@@ -7,7 +7,8 @@ import PasswordController from '../controllers/PasswordController';
 
 /* GET home page. */
 router.get('/', RouteController.handlePromise(async (req, res) => {
-    res.send('index');
+    await PasswordController.cleanBin();
+    res.render('index', {title: 'PWBin'});
 }));
 
 // PASSWORD

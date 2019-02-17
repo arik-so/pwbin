@@ -13,7 +13,7 @@ export default class PasswordController {
         });
     };
 
-    private static async cleanBin() {
+    public static async cleanBin() {
         // throw out all passwords
         const now = Date.now();
         const expiredCreation = now - this.EXPIRATION_DELTA;
@@ -27,7 +27,7 @@ export default class PasswordController {
 
         await this.cleanBin();
 
-        res.send(password.content);
+        res.render('password', {content: password.content});
     }
 
     public static async store(req) {
