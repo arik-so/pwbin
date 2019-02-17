@@ -2,6 +2,13 @@ import sjcl = require('sjcl');
 import rp = require('request-promise-native');
 
 export default class PWBin {
+
+    private baseUri: string;
+
+    constructor(config: { baseUri: string }) {
+        this.baseUri = config.baseUri;
+    }
+
     static encrypt(password: string, pin: string): string {
         // @ts-ignore
         return sjcl.encrypt(pin, password);
@@ -11,12 +18,11 @@ export default class PWBin {
         return sjcl.decrypt(pin, ciphertext);
     }
 
-
-    public static async storePassword(password: string, pin: string): Promise<string> {
-        const encryptedPassword = this.encrypt(password, pin);
+    public async storePassword(password: string, pin: string): Promise<string> {
+        const encryptedPassword = PWBin.encrypt(password, pin);
         const options = {
             method: 'POST',
-            uri: 'http://localhost:3000/pw/store',
+            uri: this.baseUri + '/pw/store',
             json: true,
             body: {
                 content: encryptedPassword

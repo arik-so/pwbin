@@ -15,6 +15,8 @@ block content
 
     script(type='application/javascript').
 
+        const pwBin = new PWBin({baseUri: document.location.origin});
+
         const mainForm = document.getElementById('main_form');
         mainForm.onsubmit = function (event) {
             event.preventDefault();
@@ -22,7 +24,7 @@ block content
             const password = document.getElementById('password_input').value;
             const pin = document.getElementById('pin_input').value;
 
-            PWBin.storePassword(password, pin)
+            pwBin.storePassword(password, pin)
                 .then(function (response) {
                     console.log(response);
                     mainForm.parentElement.removeChild(mainForm);
