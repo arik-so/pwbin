@@ -1,0 +1,35 @@
+{
+  "name": "curtain-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "tsc": "./node_modules/typescript/bin/tsc --build tsconfig.json",
+    "heroku-postbuild": "npm run tsc"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.0",
+    "human-readable-ids": "^1.0.4",
+    "mongoose": "^5.4.0",
+    "morgan": "~1.9.0",
+    "node-compass": "0.2.3",
+    "randomstring": "^1.1.5",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "sanitize": "^2.1.0",
+    "sjcl": "^1.0.8"
+  },
+  "devDependencies": {
+    "@types/argon2": "^0.15.0",
+    "@types/mocha": "^5.2.6",
+    "@types/mongoose": "^5.3.5",
+    "@types/node": "^10.12.10",
+    "@types/randomstring": "^1.1.6",
+    "@types/sjcl": "^1.0.28",
+    "mocha": "^5.2.0",
+    "typescript": "^3.1.6"
+  }
+}
