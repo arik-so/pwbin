@@ -1,7 +1,7 @@
 import sjcl = require('sjcl');
 import rp = require('request-promise-native');
 
-class PWBin {
+export default class PWBin {
     static encrypt(password: string, pin: string): string {
         // @ts-ignore
         return sjcl.encrypt(pin, password);
