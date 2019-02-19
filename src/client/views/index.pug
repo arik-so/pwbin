@@ -8,8 +8,10 @@ block content
     p Welcome to #{title}
     p Shorten Password
     form(id='main_form')
-        input(placeholder='Password' id='password_input')
-        input(placeholder='PIN' id='pin_input')
+        input(placeholder='Password' type='password' id='password_input' autocomplete='off')
+        br
+        input(placeholder='PIN' type='num' id='pin_input' autocomplete='off')
+        br
         input(type='submit')
     a(id='pw_url')
 
